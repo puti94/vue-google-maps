@@ -96,7 +96,7 @@ function makeGmapApiPromiseLazy (options) {
         return new Promise((resolve, reject) => {
           try {
             window['vueGoogleMapsInit'] = resolve
-            loadGmapApi(options.load, options.loadCn)
+            loadGmapApi(options.load, options.loadCn, options.baseUrl)
           } catch (err) {
             reject(err)
           }
