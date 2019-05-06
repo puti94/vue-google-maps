@@ -28,7 +28,7 @@ let isApiSetUp = false
  *      })
  * ```
  */
-export const loadGmapApi = (options, loadCn) => {
+export const loadGmapApi = (options, loadCn, customUrl) => {
   if (typeof document === 'undefined') {
     // Do nothing if run from server-side
     return
@@ -56,6 +56,9 @@ export const loadGmapApi = (options, loadCn) => {
 
     if (typeof loadCn === 'boolean' && loadCn === true) {
       baseUrl = 'https://maps.google.cn/'
+    }
+    if (customUrl && typeof customUrl === 'string') {
+      baseUrl = customUrl;
     }
 
     let url = baseUrl + 'maps/api/js?' +
